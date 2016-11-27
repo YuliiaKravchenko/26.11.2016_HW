@@ -1,26 +1,22 @@
-// 1 variant
-function checkArgType1(a, b, c) {
-    let result = [];
-    for (var i = 0; i < arguments.length; i++) {
-        result[i]=typeof(arguments[i]);
-    }
-    
-    return result;
+//Написать функцию, которая будет принимать строку (только буквы латинского алфавита) любой длины и возвращать ее, но удалив из нее все гласные буквы английского алфавита. (их всего 6:  «A», «E», «I», «O», «U», «Y»)
+
+let str = prompt("Write a string").split("");
+function check() {
+   var regexp = /[a-zA-Z]/;
+   if(prompt == regexp ) {
+       alert ("Input is correct");
+   } else {
+       alert("It is not english alphabet");
+   }
 }
-
-console.log(checkArgType1(1,"hi",a=[1,2,3],true));
-
-//2 variant
-function checkAgrType2(...theArgs){
-   let result = [];
-    let str;
-    for (var i=0; i<theArgs.length; i++){
-        result[i]=typeof(theArgs[i]);
-        str=result.join(',');
+check(str);
+console.log(str);
+let deleteElem = ["A","E","I","O","U","Y","a","e","i","o","u","y"];
+function delete(array){
+    for(var i=0; i<array.length; i++){
+        if(array[i]==deleteElem[i]){
+            
+        }
     }
-    return str;
 }
-
-console.log(checkAgrType2(5, true, {a:"letter"}));
-
-
+console.log(result);
