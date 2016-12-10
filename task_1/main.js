@@ -16,7 +16,7 @@ let numbers1 = [2, 4, 6];
 
 function checkArray(array) {
     for (var i = 0; i < array.length; i++) {
-        let check = array[i]%2;
+        let check = array[i] % 2;
         if (check == 0) {
             console.log(true);
         } else {
@@ -30,41 +30,42 @@ checkArray(numbers1);
 
 let str = ["this", "is", "a", "very", "long", "array", "which", "has", "absolutely", "no", "sense"];
 console.log(str.join(" "));
-console.log(typeof(str.join( )));
+console.log(typeof (str.join()));
 
 // Получить новый массив, в котором к каждому элементу (строке) будет добавлено число, равное количеству символов в этой строке. Например, [“this - 4”, “is - 2” ....] (Array)
 
-let newStr = str.map(function(Array) {
-    let l = Array+"-"+Array.length;
+let newStr = str.map(function (Array) {
+    let l = Array + "-" + Array.length;
     return l;
-}); 
+});
 console.log(newStr);
-console.log(typeof(newStr));
+console.log(typeof (newStr));
 
 // Получить новый массив, в котором все элементы (строки) содержат 4 или более символов (Array)
 
 
-let result = str.filter(function(Array){
+let result = str.filter(function (Array) {
     let l = Array.length;
-    if(l>=4){
+    if (l >= 4) {
         return Array;
     }
 });
-console.log (result);
-console.log(typeof(result));
+console.log(result);
+console.log(typeof (result));
 
 // Получить массив, который будет содержать только нечетные числа (Array)
 
 let nums = [1, 2, 3, 5, 8, 13, 21, 34];
+
 function chooseNum(array) {
-    let n = array%2;
-  if (n !== 0){
-      return array;
-  }
+    let n = array % 2;
+    if (n !== 0) {
+        return array;
+    }
 }
 let r = nums.filter(chooseNum);
-console.log(r); 
-console.log(typeof(r)); 
+console.log(r);
+console.log(typeof (r));
 
 // Сообщить, является ли сумма всех элементов больше 100 (Boolean)
 
@@ -89,4 +90,26 @@ checkSum(nums);
 
 let newArray = nums.concat(str).join(",");
 console.log(newArray);
-console.log(typeof(newArray));
+console.log(typeof (newArray));
+
+// Получить новый массив, в котором все элементы будут отсортированы по кол-ву символов в строке по возрастанию
+
+function sort(array) {
+    let result = array.slice().sort((a, b) => a.length - b.length);
+    return result;
+}
+sort(str);
+console.log(sort(str));
+
+// Найти индекс самого длинного слова в массиве
+
+//let str = ["this", "is", "a", "very", "long", "array", "which", "has", "absolutely", "no", "sense"];
+
+let elLength = str.map(function (el, i, arr) {
+    return el.length;
+});
+let max = Math.max.apply(null, elLength);
+let i = str.findIndex(function (el, i, array) {
+    if (el.length === max) return i;
+});
+console.log(i);
